@@ -52,13 +52,7 @@
 .about-sec1 {
     word-spacing: 9px;
 }
-
-.right {
-    flex-basis: 60%;
-}
-.left {
-    flex-basis: 40%;
-}
+/* About Us */
 #aboutUs {
     /* height: 100vh; */
     padding: 75px 0px 25px 0;
@@ -69,10 +63,19 @@
 #aboutUs img {
     object-fit: cover;
 }
+.underline::after {
+    content: "";
+    background: #35b1cd;
+    display: block;
+    height: 3px;
+    margin-top: 0.5rem;
+}
 
 /* SERVICE */
 #services {
     padding: 75px 0px 25px 0;
+    background-color: #b5d6ff7a;
+
     /* height: 100vh; */
 }
 .service-icon {
@@ -81,6 +84,7 @@
 .team-card {
     box-shadow: 0.1px 0.1px 1px rgba(66, 66, 66, 0.3);
     border: 1px solid rgb(131 131 131 / 13%);
+    height: 100%;
 }
 .team-card:hover {
     transform: scale(1.01);
@@ -171,9 +175,10 @@
 /*--------------------------------------------------------------
 # Contact Us
 --------------------------------------------------------------*/
-/* #contact {
-    position: relative;
-} */
+#contact {
+    background-color: #b5d6ff7a;
+}
+
 .contact .info {
     /* border-top: 3px solid #eb5d1e; */
     border-bottom: 3px solid #8ecae6;
