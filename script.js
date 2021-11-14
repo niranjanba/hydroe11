@@ -9,7 +9,6 @@ let observerConfig = {
 function observerFn(entries, observer) {
     entries.forEach((entry) => {
         if (!entry.isIntersecting) {
-            console.log("heloo");
             switch (entry.target.id) {
                 case "intro":
                     document.querySelector(".home").classList.remove("hilight");

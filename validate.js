@@ -31,7 +31,7 @@ function checkInput(e) {
                 setErrorFor(phone, "Please Enter a Valid Mobile Number");
             } else {
                 setSuccessFor(phone);
-                if (serviceValue == "Open this select menu") {
+                if (serviceValue == "Select Service") {
                     setErrorFor(service, "Please Select a Service");
                 } else {
                     console.log(serviceValue);

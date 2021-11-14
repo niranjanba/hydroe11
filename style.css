@@ -75,6 +75,9 @@
     padding: 75px 0px 25px 0;
     /* height: 100vh; */
 }
+.service-icon {
+    font-size: 25px;
+}
 .team-card {
     box-shadow: 0.1px 0.1px 1px rgba(66, 66, 66, 0.3);
     border: 1px solid rgb(131 131 131 / 13%);
