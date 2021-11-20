@@ -41,13 +41,23 @@ function checkInput(e) {
                     } else {
                         const formData = new FormData(form);
                         setSuccessFor(message);
+                        let headers = new Headers();
+                        headers.append("Content-Type", "application/json");
+                        headers.append("Accept", "application/json");
+
+                        headers.append(
+                            "Access-Control-Allow-Origin",
+                            "http://localhost:3000"
+                        );
+                        headers.append(
+                            "Access-Control-Allow-Credentials",
+                            "true"
+                        );
                         fetch(
                             "https://hydro-mailer.herokuapp.com/api/v1/mail/",
                             {
                                 method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json",
-                                },
+                                headers: headers,
                                 body: JSON.stringify({
                                     name: username,
                                     email: emailValue,
