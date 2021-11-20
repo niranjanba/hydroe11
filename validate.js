@@ -66,11 +66,15 @@ function checkInput(e) {
                                     service: serviceValue,
                                 }),
                             }
-                        ).then((res) => {
-                            if (res) {
-                                console.log(res);
-                            }
-                        });
+                        )
+                            .then((res) => {
+                                if (res) {
+                                    console.log(res);
+                                }
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
                         username.value = "";
                         email.value = "";
                         phone.value = "";
