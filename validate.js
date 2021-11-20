@@ -47,7 +47,7 @@ function checkInput(e) {
 
                         headers.append(
                             "Access-Control-Allow-Origin",
-                            "http://localhost:3000"
+                            "https://he11s.com/"
                         );
                         headers.append(
                             "Access-Control-Allow-Credentials",
