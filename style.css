@@ -33,6 +33,8 @@
     font-weight: 500;
 }
 
+/* INTRO */
+
 #intro {
     display: flex;
     align-items: center;
@@ -49,13 +51,26 @@
 .intro-sec2 {
     align-items: center;
 }
-.about-sec1 {
-    word-spacing: 9px;
+
+#intro a {
+    background-color: #37c1d6;
+    border-color: #37c1d6;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 0px 12px 3px #018ba3;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
+
 /* About Us */
 #aboutUs {
-    /* height: 100vh; */
     padding: 75px 0px 25px 0;
+}
+.about-sec1 {
+    word-spacing: 9px;
 }
 #aboutUs > h2 {
     text-align: center;
@@ -75,8 +90,6 @@
 #services {
     padding: 75px 0px 25px 0;
     background-color: #b5d6ff7a;
-
-    /* height: 100vh; */
 }
 .service-icon {
     font-size: 25px;
@@ -150,7 +163,6 @@
 .emp-image {
     width: 100%;
     height: 15rem;
-    /* border-radius: 50%; */
     object-fit: cover;
     border-radius: 5px;
 }
@@ -160,7 +172,6 @@
 }
 .member {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-    /* box-shadow: 10px 9px 23px 3px rgba(109, 101, 101, 0.74); */
 }
 .role {
     text-align: center;
@@ -180,7 +191,6 @@
 }
 
 .contact .info {
-    /* border-top: 3px solid #eb5d1e; */
     border-bottom: 3px solid #8ecae6;
     padding: 30px;
     background: #fff;
@@ -255,7 +265,6 @@
 }
 .contact .php-email-form {
     width: 100%;
-    /* border-top: 3px solid #eb5d1e; */
     border-bottom: 3px solid #8ecae6;
     padding: 30px;
     background: #fff;
@@ -564,8 +573,18 @@
     }
     .intro-sec1 p,
     h1 {
-        /* padding: 10px; */
         font-size: 1.2rem;
+    }
+    #intro a {
+        background-color: #37c1d6;
+        border-color: #37c1d6;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0px 0px 12px 3px #018ba3;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-bottom: 10px;
     }
     .modal-contents {
         width: 314px;
@@ -592,6 +611,7 @@
         font-size: 1.5rem !important;
     }
 }
+
 @media (min-width: 576px) {
     #aboutUs,
     #teams,
@@ -604,10 +624,6 @@
         height: 40px;
         width: 50px;
     }
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
 }
 
 /* // Large devices (desktops, 992px and up) */

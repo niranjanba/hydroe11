@@ -41,15 +41,22 @@ function checkInput(e) {
                     } else {
                         const formData = new FormData(form);
                         setSuccessFor(message);
-                        fetch(form.getAttribute("action"), {
-                            method: "POST",
-                            headers: {
-                                Accept: "application/x-www-form-urlencoded;charset=UTF-8",
-                                "Content-Type":
-                                    "application/x-www-form-urlencoded;charset=UTF-8",
-                            },
-                            body: new URLSearchParams(formData).toString(),
-                        }).then((res) => {
+                        fetch(
+                            "https://hydro-mailer.herokuapp.com/api/v1/mail/",
+                            {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    name: username,
+                                    email: emailValue,
+                                    phone: phoneValue,
+                                    message: messageValue,
+                                    service: serviceValue,
+                                }),
+                            }
+                        ).then((res) => {
                             if (res) {
                                 console.log(res);
                             }
