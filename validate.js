@@ -64,6 +64,7 @@ function checkInput(e) {
                                 if (res.ok) {
                                     modal.style.display = "flex";
                                     loader.style.display = "none";
+                                    console.log(res);
                                 } else {
                                     throw new Error(
                                         "Could'nt send the mail try after some time"
