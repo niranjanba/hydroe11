@@ -52,7 +52,7 @@ function checkInput(e) {
                                 method: "POST",
                                 headers: headers,
                                 body: JSON.stringify({
-                                    name: username,
+                                    name: usernameValue,
                                     email: emailValue,
                                     phone: phoneValue,
                                     message: messageValue,
