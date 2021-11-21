@@ -6,6 +6,7 @@ const email = document.querySelector("#email");
 const phone = document.querySelector("#phone");
 const message = document.querySelector("#message");
 const service = document.querySelector("#service");
+const loader = document.querySelector(".loader-background");
 //   const subject = document.querySelector('#subject');
 form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -39,22 +40,14 @@ function checkInput(e) {
                     if (messageValue == "") {
                         setErrorFor(message, "Please Write somthing to us");
                     } else {
+                        loader.style.display = "flex";
                         const formData = new FormData(form);
                         setSuccessFor(message);
                         let headers = new Headers();
                         headers.append("Content-Type", "application/json");
                         headers.append("Accept", "application/json");
-
-                        headers.append(
-                            "Access-Control-Allow-Origin",
-                            "https://he11s.com/"
-                        );
-                        headers.append(
-                            "Access-Control-Allow-Credentials",
-                            "true"
-                        );
                         fetch(
-                            "https://hydro-mailer.herokuapp.com/api/v1/mail/",
+                            "https://mycorsproxy-niranjan.herokuapp.com/https://he11s.com",
                             {
                                 method: "POST",
                                 headers: headers,
@@ -68,8 +61,13 @@ function checkInput(e) {
                             }
                         )
                             .then((res) => {
-                                if (res) {
-                                    console.log(res);
+                                if (res.ok) {
+                                    modal.style.display = "flex";
+                                    loader.style.display = "none";
+                                } else {
+                                    throw new Error(
+                                        "Could'nt send the mail try after some time"
+                                    );
                                 }
                             })
                             .catch((error) => {
@@ -79,7 +77,6 @@ function checkInput(e) {
                         email.value = "";
                         phone.value = "";
                         message.value = "";
-                        modal.style.display = "flex";
                         // modal.style.height = `${document.documentElement.scrollHeight}px`;
                     }
                 }

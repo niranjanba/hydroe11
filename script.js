@@ -38,7 +38,6 @@ function observerFn(entries, observer) {
             }
             return;
         }
-        console.log(entry.target);
         switch (entry.target.id) {
             case "intro":
                 document.querySelector(".home").classList.toggle("hilight");
