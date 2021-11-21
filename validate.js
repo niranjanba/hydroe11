@@ -47,7 +47,7 @@ function checkInput(e) {
                         headers.append("Content-Type", "application/json");
                         headers.append("Accept", "application/json");
                         fetch(
-                            "https://mycorsproxy-niranjan.herokuapp.com/https://he11s.com",
+                            "https://mycorsproxy-niranjan.herokuapp.com/https://hydro-mailer.herokuapp.com/api/v1/mail",
                             {
                                 method: "POST",
                                 headers: headers,
