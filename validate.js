@@ -23,7 +23,7 @@ const subCategories = [
     ],
     [
         "Select Management Service",
-        "HT Took Kit",
+        "HT Tool Kit",
         "Employee Engagement",
         "Insurance and Claims",
         "Register Maintainance",
