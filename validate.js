@@ -9,18 +9,73 @@ const service = document.querySelector("#service");
 const loader = document.querySelector(".loader-background");
 const subTax = document.querySelector(".sub-tax");
 const taxSubService = document.querySelector("#tax-service");
+const addSubservice = document.querySelector(".add-subservice");
 //   const subject = document.querySelector('#subject');
+
+const subCategories = [
+    [
+        "Select Tax Servcie",
+        "GST Filing",
+        "IT Filing",
+        "ESI & PF Filing",
+        "Individual IT Filing",
+        "IT & GST Legal Compliances",
+    ],
+    [
+        "Select Management Service",
+        "HT Took Kit",
+        "Employee Engagement",
+        "Insurance and Claims",
+        "Register Maintainance",
+        "RoC Compliances",
+    ],
+    [
+        "Select Accounting Service",
+        "Books of Accounts",
+        "PayRroll Management",
+        "Financial Statements",
+        "Vendor and Customer Billing Mangement",
+        "IT and Roc Compliances",
+    ],
+];
 form.addEventListener("submit", function (e) {
     e.preventDefault();
     checkInput();
 });
 service.addEventListener("click", (e) => {
     if (e.target.value === "Tax Services") {
-        subTax.style.display = "block";
-    } else {
-        subTax.style.display = "none";
+        addSubCategorySelector(0);
+    } else if (e.target.value === "Management Services") {
+        addSubCategorySelector(1);
+    } else if (e.target.value === "Accounting Services") {
+        addSubCategorySelector(2);
     }
 });
+function addSubCategorySelector(idx) {
+    let subServiceHtml = `
+        <label for="service">${subCategories[idx][0]}</label>
+        <select
+            id="tax-service"
+            class="form-select"
+            aria-label="Default select example"
+        >
+            <option selected disabled>
+                ${subCategories[idx][0]}
+            </option>
+            ${subCategories[idx]
+                .map((category, index) => {
+                    if (index > 0) {
+                        return `
+                    <option value="${category}">${category}</option>
+                    `;
+                    }
+                })
+                .join("")}
+        </select>
+        <div class="validate"></div>
+    `;
+    addSubservice.innerHTML = subServiceHtml;
+}
 function checkInput(e) {
     const usernameValue = username.value;
     const emailValue = email.value.trim();
