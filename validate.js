@@ -127,45 +127,44 @@ function checkInput(e) {
                             const selectedService = isSubservice
                                 ? `${serviceValue}- ${subServiceValue}`
                                 : serviceValue;
-                            console.log(selectedService);
-                            // let headers = new Headers();
-                            // headers.append("Content-Type", "application/json");
-                            // headers.append("Accept", "application/json");
-                            // fetch(
-                            //     "https://mycorsproxy-niranjan.herokuapp.com/https://hydro-mailer.herokuapp.com/api/v1/mail",
-                            //     {
-                            //         method: "POST",
-                            //         headers: headers,
-                            //         body: JSON.stringify({
-                            //             name: usernameValue,
-                            //             email: emailValue,
-                            //             phone: phoneValue,
-                            //             message: messageValue,
-                            //             service: selectedService,
-                            //         }),
-                            //     }
-                            // )
-                            //     .then((res) => {
-                            //         if (res.ok) {
-                            //             modal.style.display = "flex";
-                            //             loader.style.display = "none";
+                            let headers = new Headers();
+                            headers.append("Content-Type", "application/json");
+                            headers.append("Accept", "application/json");
+                            fetch(
+                                "https://mycorsproxy-niranjan.herokuapp.com/https://hydro-mailer.herokuapp.com/api/v1/mail",
+                                {
+                                    method: "POST",
+                                    headers: headers,
+                                    body: JSON.stringify({
+                                        name: usernameValue,
+                                        email: emailValue,
+                                        phone: phoneValue,
+                                        message: messageValue,
+                                        service: selectedService,
+                                    }),
+                                }
+                            )
+                                .then((res) => {
+                                    if (res.ok) {
+                                        modal.style.display = "flex";
+                                        loader.style.display = "none";
 
-                            //             console.log(res);
-                            //         } else {
-                            //             throw new Error(
-                            //                 "Could'nt send the mail try after some time"
-                            //             );
-                            //         }
-                            //     })
-                            //     .catch((error) => {
-                            //         console.log(error);
-                            //         loader.style.display = "none";
-                            //     });
-                            // username.value = "";
-                            // email.value = "";
-                            // phone.value = "";
-                            // message.value = "";
-                            // modal.style.height = `${document.documentElement.scrollHeight}px`;
+                                        console.log(res);
+                                    } else {
+                                        throw new Error(
+                                            "Could'nt send the mail try after some time"
+                                        );
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.log(error);
+                                    loader.style.display = "none";
+                                });
+                            username.value = "";
+                            email.value = "";
+                            phone.value = "";
+                            message.value = "";
+                            modal.style.height = `${document.documentElement.scrollHeight}px`;
                         }
                     }
                 }
