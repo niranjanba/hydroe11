@@ -59,6 +59,11 @@ function checkInput(e) {
                         } else {
                             loader.style.display = "flex";
                             setSuccessFor(message);
+                            const selectedService =
+                                serviceValue !== "Tax Services"
+                                    ? serviceValue
+                                    : serviceValue + "- " + taxSubServeValue;
+                            console.log(selectedService);
                             let headers = new Headers();
                             headers.append("Content-Type", "application/json");
                             headers.append("Accept", "application/json");
@@ -89,6 +94,7 @@ function checkInput(e) {
                                 })
                                 .catch((error) => {
                                     console.log(error);
+                                    loader.style.display = "none";
                                 });
                             username.value = "";
                             email.value = "";
