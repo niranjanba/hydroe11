@@ -60,9 +60,9 @@ function checkInput(e) {
                             loader.style.display = "flex";
                             setSuccessFor(message);
                             const selectedService =
-                                serviceValue !== "Tax Services"
-                                    ? serviceValue
-                                    : serviceValue + "- " + taxSubServeValue;
+                                serviceValue == "Tax Services"
+                                    ? serviceValue + "- " + taxSubServeValue
+                                    : serviceValue;
                             console.log(selectedService);
                             let headers = new Headers();
                             headers.append("Content-Type", "application/json");
