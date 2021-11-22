@@ -86,6 +86,7 @@ function checkInput(e) {
     const messageValue = message.value.trim();
     const serviceValue = service.value;
     let subServiceValue;
+    let isSubservice = false;
     if (usernameValue == "") {
         setErrorFor(username, "Please Enter a Valid Name");
     } else {
@@ -112,16 +113,20 @@ function checkInput(e) {
                         subServiceValue = subService.value;
                         setErrorFor(subService, `Please ${subServiceValue}`);
                     } else {
-                        setSuccessFor(subService);
+                        if (subService) {
+                            isSubservice = true;
+                            setSuccessFor(subService);
+                        } else {
+                            isSubservice = false;
+                        }
                         if (messageValue == "") {
                             setErrorFor(message, "Please Write somthing to us");
                         } else {
                             loader.style.display = "flex";
                             setSuccessFor(message);
-                            const selectedService =
-                                serviceValue == "Tax Services"
-                                    ? `${serviceValue}- ${subServiceValue}`
-                                    : serviceValue;
+                            const selectedService = isSubservice
+                                ? `${serviceValue}- ${subServiceValue}`
+                                : serviceValue;
                             let headers = new Headers();
                             headers.append("Content-Type", "application/json");
                             headers.append("Accept", "application/json");
