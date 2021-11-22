@@ -72,12 +72,7 @@ function checkInput(e) {
                                         email: emailValue,
                                         phone: phoneValue,
                                         message: messageValue,
-                                        service:
-                                            serviceValue !== "Tax Services"
-                                                ? serviceValue
-                                                : serviceValue +
-                                                  "- " +
-                                                  taxSubServeValue,
+                                        service: serviceValue,
                                     }),
                                 }
                             )
