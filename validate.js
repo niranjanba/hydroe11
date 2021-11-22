@@ -77,7 +77,7 @@ function checkInput(e) {
                                         email: emailValue,
                                         phone: phoneValue,
                                         message: messageValue,
-                                        service: serviceValue,
+                                        service: selectedService,
                                     }),
                                 }
                             )
