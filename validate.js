@@ -164,7 +164,6 @@ function checkInput(e) {
                             email.value = "";
                             phone.value = "";
                             message.value = "";
-                            modal.style.height = `${document.documentElement.scrollHeight}px`;
                         }
                     }
                 }
