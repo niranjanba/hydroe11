@@ -8,7 +8,7 @@ const message = document.querySelector("#message");
 const service = document.querySelector("#service");
 const loader = document.querySelector(".loader-background");
 const subTax = document.querySelector(".sub-tax");
-const taxSubService = document.querySelector("#tax-service");
+let subService;
 const addSubservice = document.querySelector(".add-subservice");
 //   const subject = document.querySelector('#subject');
 
@@ -49,6 +49,8 @@ service.addEventListener("click", (e) => {
         addSubCategorySelector(1);
     } else if (e.target.value === "Accounting Services") {
         addSubCategorySelector(2);
+    } else {
+        addSubservice.innerHTML = "";
     }
 });
 function addSubCategorySelector(idx) {
@@ -59,14 +61,14 @@ function addSubCategorySelector(idx) {
             class="form-select"
             aria-label="Default select example"
         >
-            <option selected disabled>
+            <option data-service="0" selected disabled>
                 ${subCategories[idx][0]}
             </option>
             ${subCategories[idx]
                 .map((category, index) => {
                     if (index > 0) {
                         return `
-                    <option value="${category}">${category}</option>
+                    <option data-service="${index}" value="${category}">${category}</option>
                     `;
                     }
                 })
@@ -75,6 +77,7 @@ function addSubCategorySelector(idx) {
         <div class="validate"></div>
     `;
     addSubservice.innerHTML = subServiceHtml;
+    subService = document.querySelector("#tax-service");
 }
 function checkInput(e) {
     const usernameValue = username.value;
@@ -82,7 +85,7 @@ function checkInput(e) {
     const phoneValue = phone.value.trim();
     const messageValue = message.value.trim();
     const serviceValue = service.value;
-    const taxSubServeValue = taxSubService.value;
+    let subServiceValue;
     if (usernameValue == "") {
         setErrorFor(username, "Please Enter a Valid Name");
     } else {
@@ -100,15 +103,16 @@ function checkInput(e) {
                 } else {
                     setSuccessFor(service);
                     if (
-                        serviceValue === "Tax Services" &&
-                        taxSubServeValue == "Select Tax Service"
+                        (serviceValue == "Tax Services" ||
+                            serviceValue == "Management Services" ||
+                            serviceValue == "Accounting Services") &&
+                        subService[subService.selectedIndex].dataset.service ==
+                            "0"
                     ) {
-                        setErrorFor(
-                            taxSubService,
-                            "Please Select a Tax Service"
-                        );
+                        subServiceValue = subService.value;
+                        setErrorFor(subService, `Please ${subServiceValue}`);
                     } else {
-                        setSuccessFor(taxSubService);
+                        setSuccessFor(subService);
                         if (messageValue == "") {
                             setErrorFor(message, "Please Write somthing to us");
                         } else {
@@ -116,9 +120,8 @@ function checkInput(e) {
                             setSuccessFor(message);
                             const selectedService =
                                 serviceValue == "Tax Services"
-                                    ? `${serviceValue}- ${taxSubServeValue}`
+                                    ? `${serviceValue}- ${subServiceValue}`
                                     : serviceValue;
-                            console.log(selectedService);
                             let headers = new Headers();
                             headers.append("Content-Type", "application/json");
                             headers.append("Accept", "application/json");
