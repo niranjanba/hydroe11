@@ -61,7 +61,7 @@ function checkInput(e) {
                             setSuccessFor(message);
                             const selectedService =
                                 serviceValue == "Tax Services"
-                                    ? serviceValue + "- " + taxSubServeValue
+                                    ? `${serviceValue}- ${taxSubServeValue}`
                                     : serviceValue;
                             console.log(selectedService);
                             let headers = new Headers();
