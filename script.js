@@ -1,8 +1,7 @@
 const sections = document.querySelectorAll("section");
-
 let observerConfig = {
     root: null,
-    rootMargin: "-277px 0px -300px 0px",
+    rootMargin: "-268px 0px -300px 0px",
     threshold: 0,
 };
 
